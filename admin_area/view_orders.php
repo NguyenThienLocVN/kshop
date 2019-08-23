@@ -23,7 +23,7 @@
 					<td class="tg-vn4c">Order No  	</td>
 					<td class="tg-vn4c">Customer Email           </td>
 					<td class="tg-vn4c">Invoice No.            </td>
-					<td class="tg-vn4c">Product ID            </td>
+					<td class="tg-vn4c">Product Name            </td>
 					<td class="tg-vn4c">Quantity            </td>
 					<td class="tg-vn4c">Status            </td>
 					
@@ -38,7 +38,7 @@
 					//database connection
 					include("includes/db.php");
 					$i=0;
-					$get_orders = "select * from pending_orders";
+					$get_orders = "select * from pending_orders, products where pending_orders.product_id = products.product_id ";
 					//sql querry to retrive the data 
 					$run_orders = mysqli_query($con,$get_orders);
 					
@@ -50,7 +50,7 @@
 						$c_id = $row_orders['customer_id'];
 						
 						$invoice = $row_orders['invoice_no'];
-						$p_id = $row_orders['product_id'];
+						$p_name = $row_orders['product_title'];
 						$qty=$row_orders['qty'];
 						
 						$status=$row_orders['order_status'];
@@ -72,7 +72,7 @@
 				  <td><?php echo $customer_email;?> </td>
 				 <td><?php echo $invoice;?> </td>
 				 
-				 <td><?php echo $p_id;?> </td>
+				 <td><?php echo $p_name;?> </td>
 				  <td><?php echo $qty;?> </td>
 				 <td><?php 
 					if($status=='Pending')

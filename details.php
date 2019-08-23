@@ -153,7 +153,7 @@
 					
 					<div class="col-sm-9 padding-right">
 						<div class="features_items"  id="products_box"><!--features_items start-->
-							<h2 class="title text-center">Featured Items</h2>
+							<h2 class="title text-center">Item Info</h2>
 							
 							<?php 
 							if(isset($_GET['pro_id']))
